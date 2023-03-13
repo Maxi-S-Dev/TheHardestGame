@@ -32,7 +32,7 @@ namespace TheHardestGame
         bool up = false, down = false, left = false, right = false;
 
 
-        float enemySpeed = 6;
+        float enemySpeed = 12;
         float firstSpeed;
         float secondSpeed;
         float thirdSpeed;
@@ -60,6 +60,21 @@ namespace TheHardestGame
         void GameTick(object? sender, EventArgs e)
         {
             MoveEnemys();
+            CheckWin();
+        }
+
+        private void CheckWin()
+        {
+            Rect PlayerHB = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
+            Rect winHB = new Rect(Canvas.GetLeft(WinZone), Canvas.GetTop(WinZone), WinZone.Width, WinZone.Height);
+
+            if (PlayerHB.IntersectsWith(winHB)) WinGame();
+        }
+
+        private void WinGame()
+        {
+            ResultLabel.Content = "wow you actually won \n Press 'r' if you hate yourself";
+            DP.Stop();
         }
 
         private void MoveEnemys()
@@ -122,7 +137,6 @@ namespace TheHardestGame
                     }
                 }
             }
-
         }
 
         private void GameOver()
@@ -204,7 +218,14 @@ namespace TheHardestGame
 
         private void resetGame()
         {
+            DP.Stop();
             Canvas.SetLeft(Player, 87); Canvas.SetTop(Player, 209);
+            Canvas.SetLeft(FirstRow, 572); Canvas.SetTop(FirstRow, 149);
+            Canvas.SetLeft(SecondRow, 212); Canvas.SetTop(SecondRow, 189);
+            Canvas.SetLeft(ThirdRow, 572); Canvas.SetTop(ThirdRow, 229);
+            Canvas.SetLeft(FourthRow, 212); Canvas.SetTop(FourthRow, 269);
+
+            DP.Start();
         }
 
         private void ButtonReleased(object sender, KeyEventArgs e)
