@@ -7,8 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Canvas x:Name="Canvas" Focusable="True" KeyDown="ButtonPressed" KeyUp="ButtonReleased">
 
+        <Label x:Name="ResultLabel"
+               HorizontalAlignment="Center" VerticalAlignment="Top"
+               FontSize="30" FontWeight="Bold"
+               Margin="0, 10, 0, 0"/>
+
+        <Canvas x:Name="Canvas" Focusable="True" KeyDown="ButtonPressed" KeyUp="ButtonReleased">
 
             <!--#region ground texture-->
             <Rectangle Width="40" Height="40" Fill="#e6e6ff" Canvas.Left="560" Canvas.Top="97"/>
@@ -56,8 +61,8 @@
             <Rectangle Height="5" Width="200" Fill="Black" Canvas.Left="560" Canvas.Top="92 " Tag="collider"/>
             <Rectangle Height="5" Width="40 " Fill="Black" Canvas.Left="600" Canvas.Top="137" Tag="collider"/>
             <Rectangle Height="5" Width="120" Fill="Black" Canvas.Left="640" Canvas.Top="337" Tag="collider"/>
-                                                                                                     
-                                                                                                     
+
+
             <Rectangle Height="250" Width="5" Fill="Black" Canvas.Left="35 " Canvas.Top="92 " Tag="collider"/>
             <Rectangle Height="200" Width="5" Fill="Black" Canvas.Left="160" Canvas.Top="92 " Tag="collider"/>
             <Rectangle Height="160" Width="5" Fill="Black" Canvas.Left="195" Canvas.Top="132" Tag="collider"/>
@@ -68,11 +73,15 @@
             <Rectangle Height="250" Width="5" Fill="Black" Canvas.Left="760" Canvas.Top="92 " Tag="collider"/>
             <Rectangle Height=" 45" Width="5" Fill="Black" Canvas.Left="240" Canvas.Top="297" Tag="collider"/>
 
-
-
             <!--#endregion-->
 
-            <Rectangle x:Name="Player" Fill="Red" Height="26" Width="26" Stroke="Black" StrokeThickness="3" Canvas.Top="295" Canvas.Left="100" RenderTransformOrigin="-9.231,2.822"/>
+            <Ellipse Width="16" Height="16" Fill="navy" Canvas.Left="572" Canvas.Top="149" Tag="enemy" x:Name="FirstRow"/>
+            <Ellipse Width="16" Height="16" Fill="navy" Canvas.Left="212" Canvas.Top="189" Tag="enemy" x:Name="SecondRow"/>
+            <Ellipse Width="16" Height="16" Fill="navy" Canvas.Left="572" Canvas.Top="229" Tag="enemy" x:Name="ThirdRow"/>
+            <Ellipse Width="16" Height="16" Fill="navy" Canvas.Left="212" Canvas.Top="269" Tag="enemy" x:Name="FourthRow"/>
+
+
+            <Rectangle x:Name="Player" Fill="Red" Height="26" Width="26" Stroke="Black" StrokeThickness="3" Canvas.Top="209" Canvas.Left="87"/>
 
             <Ellipse Width="10" Height="10" Fill="Yellow" RenderTransformOrigin="14,9.504" Canvas.Left="395" Canvas.Top="212"/>
         </Canvas>
